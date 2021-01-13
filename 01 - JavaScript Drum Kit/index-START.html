@@ -64,6 +64,9 @@
     if(!audio) return; // stops the function from running on 
     audio.currentTime = 0; // rewinds the audio file to the beginning
     audio.play();
+    key.classList.add("playing");
+    //key.classList.remove("playing");
+    //key.classList.toggle("playing");
   });
 
 </script>
