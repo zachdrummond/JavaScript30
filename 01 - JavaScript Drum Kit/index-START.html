@@ -68,6 +68,11 @@
         //key.classList.toggle("playing");
       }
 
+      function removeTransition(event) {
+        if (event.propertyName !== "transform") return; // skip it if it is not transform
+        this.classList.remove("playing"); //Cheat Sheet - Ask what called this?
+      }
+
       const keys = document.querySelectorAll(".key");
       keys.forEach((key) =>
         key.addEventListener("transitionend", removeTransition)
