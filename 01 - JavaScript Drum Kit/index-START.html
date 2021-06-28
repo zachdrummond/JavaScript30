@@ -58,6 +58,12 @@
     <script>
       window.addEventListener("keydown", function(event){ // Listens for user to press a key
         const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`); // Selects and stores the audio file from the HTML based on the key the user pressed
+        if(!audio) return; // Stops the function from running if a user presses a random key
+
+        const key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
+
+        audio.currentTime = 0; //Rewinds the audio file to the beginning so that the user can press infinite times
+        audio.play(); // Plays the audio file when the key is pressed
       });
 
     </script>
