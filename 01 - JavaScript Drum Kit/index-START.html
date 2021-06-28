@@ -67,7 +67,12 @@
         audio.play(); // Plays the audio file when the key is pressed
       });
 
-      const keys = document.querySelectorAll('key'); // Creates an array of all of the divs with a class of key
+      function removeTransition(event){
+        if(event.propertyName !== "transform") return; // Skip events if they are not transform
+        this.classList.remove("playing"); // Removes the class playing from the key
+      }
+
+      const keys = document.querySelectorAll('.key'); // Creates an array of all of the divs with a class of key
       keys.forEach(key => key.addEventListener("transitionend", removeTransition)); // Listens for the end of each transition and runs the removeTransition function
     </script>
   </body>
